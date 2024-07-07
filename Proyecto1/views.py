@@ -16,12 +16,14 @@ document_time= """
 """
 current_date=datetime.datetime.now()
 
+temas_delCurso=["plantilla", "listas"]
+
 def saludo(request):#vista
     p1=Persona("jesus","vergara")
     doc_exteno=open("/Volumes/harkdisk/Projects/Django/Proyecto1/Proyecto1/Plantillas/miplantilla.html")
     plt=Template(doc_exteno.read())
     doc_exteno.close()
-    ctx=Context({"main_name": p1.nombre, "main_surname": p1.apellido})
+    ctx=Context({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
     document=plt.render(ctx)
     return HttpResponse(document)
 
