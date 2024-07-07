@@ -2,7 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 from django.template.loader import get_template
-
+from django.shortcuts import render
 
 class Persona(object):
     def __init__(self, nombre, apellido):
@@ -25,10 +25,10 @@ def saludo(request):#vista
     #doc_exteno=open("/Volumes/harkdisk/Projects/Django/Proyecto1/Proyecto1/Plantillas/miplantilla.html")
     #plt=Template(doc_exteno.read())
     #doc_exteno.close()
-    doc_exteno = get_template("miplantilla.html")
+    #doc_exteno = get_template("miplantilla.html")
     #ctx=Context({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
-    document=doc_exteno.render({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
-    return HttpResponse(document)
+    #document=doc_exteno.render({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
+    return render(request,"miplantilla.html",{"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
 
 def despedida(request):
     return HttpResponse("Adios")
