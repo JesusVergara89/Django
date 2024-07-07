@@ -59,3 +59,10 @@ def calcula_edad(request, age, year_):
     """.format(year_,future_age)
     return HttpResponse(document_age)
 
+def cursoC(request):
+    current_date=datetime.datetime.now()
+    return render(request, 'cursoC.html', {"dameFecha": current_date})
+
+def cursoJS(request):
+    current_date=datetime.datetime.now()
+    return render(request, 'cursoJS.html', {"dameFecha": current_date})

@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Página Web</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'miplantilla.css' %}">
+</head>
+
+<style>
+    /* miplantilla.css */
+
+    /* Estilo para el cuerpo de la página */
+    body {
+        background-color: #f9f9f9;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+
+    /* Estilo para el título principal (h1) */
+    h1 {
+        color: #4a90e2;
+        /* Azul pastel */
+        text-align: center;
+        padding: 20px;
+        background-color: #e3f2fd;
+        /* Fondo azul claro */
+        border-bottom: 2px solid #4a90e2;
+        border-radius: 5px;
+    }
+
+    /* Estilo para los subtítulos (h3) */
+    h3 {
+        color: #50bcb6;
+        /* Verde pastel */
+        text-align: left;
+        padding: 15px;
+        margin: 20px;
+        background-color: #e0f7fa;
+        /* Fondo verde claro */
+        border-left: 5px solid #50bcb6;
+        border-radius: 5px;
+    }
+
+    /* Estilo para el pie de página (footer) */
+    footer {
+        color: #9c27b0;
+        /* Morado pastel */
+        text-align: center;
+        padding: 10px;
+        background-color: #f3e5f5;
+        /* Fondo morado claro */
+        border-top: 2px solid #9c27b0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    /* Estilo para el contenedor principal */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Pagina en Django, header comun</h1>
+        {% include "superior/barra.html" %}
+        <h3>Este es un h3</h3>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        este es un footer
+    </footer>
+</body>
+
+</html>
