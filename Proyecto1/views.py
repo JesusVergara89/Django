@@ -1,13 +1,6 @@
 from django.http import HttpResponse
 import datetime
-
-document= """
-<html>
-<body>
-<h1>Hola este es mi primer hola mundo con django, for today sunday 7 of july</h1>
-</body>
-</html>
-"""
+from django.template import Template, Context
 
 document_time= """
 <html>
@@ -16,10 +9,14 @@ document_time= """
 </body>
 </html>
 """
-
 current_date=datetime.datetime.now()
 
 def saludo(request):#vista
+    doc_exteno=open("/Volumes/harkdisk/Projects/Django/Proyecto1/Proyecto1/Plantillas/miplantilla.html")
+    plt=Template(doc_exteno.read())
+    doc_exteno.close()
+    ctx=Context()
+    document=plt.render(ctx)
     return HttpResponse(document)
 
 def despedida(request):
