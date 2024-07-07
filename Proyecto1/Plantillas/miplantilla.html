@@ -9,14 +9,23 @@
 </head>
 
 <body>
+    {% comment %}
+    Este es un comentario largo de varias
+    lineas en djando
+    {% endcomment %}
     <h1>Practicas con Django</h1>
     <p>Este es un ejemplo de cómo agregar un archivo CSS a un HTML.</p>
+    {% if main_name == 'Jesus' %}
+    <p>El programa lo construye el programador titular</p>
+    {% else %}
+    <p>EL programa esta siendo dieseñado ahora por un suplente</p>
+    {% endif %}
     <p>El programdor es: {{main_name.upper}} {{main_surname.upper}}</p>
     <p class="temas_django">
     <ul>
         {% if temas %}
         {% for elTema in temas %}
-        <li>{{elTema}}</li>
+        <li>{{elTema|first|lower}}</li>
         {% endfor %}
         {% else %}
         <p>No hay elementos para mostrar</p>

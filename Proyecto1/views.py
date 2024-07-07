@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template.loader import get_template
+
 
 class Persona(object):
     def __init__(self, nombre, apellido):
@@ -16,15 +18,16 @@ document_time= """
 """
 current_date=datetime.datetime.now()
 
-temas_delCurso=["plantilla", "listas"]
+temas_delCurso=["plantilla", "listas","cargadores", "comentarios"]
 
 def saludo(request):#vista
-    p1=Persona("jesus","vergara")
-    doc_exteno=open("/Volumes/harkdisk/Projects/Django/Proyecto1/Proyecto1/Plantillas/miplantilla.html")
-    plt=Template(doc_exteno.read())
-    doc_exteno.close()
-    ctx=Context({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
-    document=plt.render(ctx)
+    p1=Persona("Jesus","vergara")
+    #doc_exteno=open("/Volumes/harkdisk/Projects/Django/Proyecto1/Proyecto1/Plantillas/miplantilla.html")
+    #plt=Template(doc_exteno.read())
+    #doc_exteno.close()
+    doc_exteno = get_template("miplantilla.html")
+    #ctx=Context({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
+    document=doc_exteno.render({"main_name": p1.nombre, "main_surname": p1.apellido, "temas": temas_delCurso})
     return HttpResponse(document)
 
 def despedida(request):
