@@ -1,0 +1,53 @@
+/* miplantilla.css */
+
+/* Estilo para el cuerpo de la página */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el título principal */
+h1 {
+    color: #005f99;
+    text-align: center;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-bottom: 2px solid #005f99;
+}
+
+/* Estilo para los párrafos */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilo para los párrafos con información específica */
+p:first-of-type {
+    background-color: #e0f7fa;
+}
+
+p:nth-of-type(2) {
+    background-color: #fff3e0;
+}
+
+/* Agregar algo de espacio en el cuerpo de la página */
+body {
+    padding: 20px;
+}
+
+/* Agregar estilo para los contenedores principales */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}

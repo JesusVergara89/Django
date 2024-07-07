@@ -2,6 +2,11 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
 
+class Persona(object):
+    def __init__(self, nombre, apellido):
+        self.nombre=nombre
+        self.apellido=apellido
+
 document_time= """
 <html>
 <body>
@@ -12,10 +17,11 @@ document_time= """
 current_date=datetime.datetime.now()
 
 def saludo(request):#vista
+    p1=Persona("jesus","vergara")
     doc_exteno=open("/Volumes/harkdisk/Projects/Django/Proyecto1/Proyecto1/Plantillas/miplantilla.html")
     plt=Template(doc_exteno.read())
     doc_exteno.close()
-    ctx=Context()
+    ctx=Context({"main_name": p1.nombre, "main_surname": p1.apellido})
     document=plt.render(ctx)
     return HttpResponse(document)
 
